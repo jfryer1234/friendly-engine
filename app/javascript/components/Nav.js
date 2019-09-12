@@ -2,7 +2,7 @@
 import React from 'react'
 
 //COMPONENT CLASS
-class Aside extends React.Component {
+class Nav extends React.Component {
 //RENDER
   render () {
     return (
@@ -17,4 +17,4 @@ class Aside extends React.Component {
 }
 
 //EXPORT
-export default Aside
+export default Nav

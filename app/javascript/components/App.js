@@ -31,8 +31,8 @@ class App extends React.Component {
     let pageTitle = ''
     let formInputs = {
       name: '',
-      image: '',
-      body: '',
+      type: '',
+      care: '',
       id: null
     }
     switch (view) {
@@ -65,7 +65,6 @@ class App extends React.Component {
 //RENDER
   render () {
     return (
-      <h1>something is connecting</h1>
       <div className="large-container">
         <Header/>
         <div className="main-container">

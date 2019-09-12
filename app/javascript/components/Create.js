@@ -59,5 +59,5 @@ class Create extends React.Component {
   }
 }
 
-//EXPORT 
-export default Form
+//EXPORT
+export default Create
