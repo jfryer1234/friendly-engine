@@ -14,7 +14,7 @@ class Plant
   # ===============================
   # PREPARED STATEMENTS
   # ===============================
-  create post
+
   DB.prepare("create_plant",
     <<-SQL
       INSERT INTO plants (name, type, care)
@@ -23,10 +23,9 @@ class Plant
     SQL
   )
 
-  # update post
   DB.prepare("update_plant",
     <<-SQL
-      UPDATE posts
+      UPDATE plants
       SET name = $2, type = $3, care = $4
       WHERE id = $1
       RETURNING id, name, type, care;
@@ -52,18 +51,18 @@ class Plant
   # show
   def self.find(id)
     results = DB.exec("SELECT * FROM plants WHERE id=#{id};")
-    # if !results.num_tuples.zero?
+    if !results.num_tuples.zero?
       return {
         "id" => results.first["id"].to_i,
         "name" => results.first["name"],
         "type" => results.first["type"],
         "care" => results.first["care"]
       }
-    # else
-    #   return {
-    #     "error" => "no such post, check the id!"
-    #   }, status: 400
-    # end
+    else
+      return {
+        "error" => "no such post, check the id!"
+      }, status: 400
+    end
   end
 
   # create

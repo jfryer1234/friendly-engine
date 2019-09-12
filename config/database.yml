@@ -14,16 +14,16 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default
+development:
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: candle-delight_development
+  pool: 5
+  username: julie
+  password:
+  timeout: 5000
 
-development:
-  <<: *default
-  database: final_project_development
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -56,8 +56,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: final_project_test
+  adapter: postgresql
+  encoding: unicode
+  database: candle-delight_development
+  pool: 5
+  username: julie
+  password:
+  timeout: 5000
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -78,8 +83,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: final_project_production
-  username: final_project
-  password: <%= ENV['FINAL_PROJECT_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: final_project_production
+#   username: final_project
+#   password: <%= ENV['FINAL_PROJECT_DATABASE_PASSWORD'] %>

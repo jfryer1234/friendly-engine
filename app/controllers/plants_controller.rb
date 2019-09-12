@@ -18,6 +18,6 @@ class PlantsController < ApplicationController
   end
 
   def update
-    render json: Plant.update(params["id"], params["post"])
+    render json: Plant.update(params["id"], params["plant"])
   end
 end
