@@ -25,5 +25,5 @@ class Home extends React.Component {
   }
 }
 
-//EXPORT 
-export default Post
+//EXPORT
+export default Home
