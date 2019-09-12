@@ -12,3 +12,4 @@ Rails.application.routes.draw do
   put 'api/plants/:id', to: 'plants#update'
 
 end
+//afkjbaskjgnsdlfgbsdnfgksnjdglksnjg
