@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: candle-delight_development
+  database: final_project_development
   pool: 5
   username: julie
   password:
@@ -58,7 +58,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: candle-delight_development
+  database: final_project_development
   pool: 5
   username: julie
   password:
