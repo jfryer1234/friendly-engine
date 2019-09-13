@@ -8,15 +8,15 @@ class Home extends React.Component {
     return (
       <article>
         <div className="post-header">
-          <h1>{this.props.plantData.name} </h1>
-          <h1>{this.props.plantData.type} </h1>
+          <h4>{this.props.plantData.name} </h4>
+          <h4>{this.props.plantData.type} </h4>
         </div>
         <div className="post-body">
-          {this.props.plantData.care}
+          <h4>{this.props.plantData.care}</h4>
         </div>
         <div className="post-options">
           <ul>
-            <li onClick={() => {this.props.handleView('editPost', this.props.postData)}}>edit plant</li>
+            <li onClick={() => {this.props.handleView('editPost', this.props.plantData)}}>edit plant</li>
             <li onClick={() => {this.props.handleDelete(this.props.plantData.id)}}>delete plant</li>
           </ul>
         </div>

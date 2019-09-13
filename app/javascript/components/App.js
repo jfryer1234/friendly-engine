@@ -1,84 +1,40 @@
 // PACKAGES
-import React from "react"
+import React from "react";
 
 // DEPENDENCIES
-import Main from "./Main.js"
-import Header from "./Header.js"
-import Nav from "./Nav.js"
-import Footer from "./Footer.js"
+import Main1 from "./Main1.js"
+// import Header from "./Header.js"
+// import Nav from "./Nav.js"
+// import Footer from "./Footer.js"
 
 //CLASS COMPONENTS
 class App extends React.Component {
-//STATE
   constructor(props) {
-    super(props)
-    this.state = {
-      view: {
-        page: 'home',
-        pageTitle: 'your plants'
-      },
-      formInputs: {
-        name: null,
-        type: null,
-        care: null,
-        id: null
+    super(props);
+      this.state = {
+        goPlants: false
       }
-    }
   }
-
-  // HANDLERS
-  handleView = (view, plantData) => {
-    let pageTitle = ''
-    let formInputs = {
-      name: '',
-      type: '',
-      care: '',
-      id: null
-    }
-    switch (view) {
-      case 'home':
-        pageTitle = 'your plants'
-        break
-      case 'addPlant':
-        pageTitle = 'add your new plant'
-        break
-      case 'editPlant':
-        pageTitle = 'edit this plant'
-        formInputs = {
-          name: postData.name,
-          type: postData.type,
-          care: postData.care,
-          id: postData.id
-        }
-        break
-      default:
-        break
-    }
-    this.setState({
-      view: {
-        page: view,
-        pageTitle: pageTitle
-      },
-      formInputs: formInputs
-    })
-  }
-//RENDER
-  render () {
-    return (
-      <div className="large-container">
-        <Header/>
-        <div className="main-container">
-          <Nav handleView={this.handleView}/>
-          <Main
-            handleView={this.handleView}
-            view={this.state.view}
-            formInputs={this.state.formInputs}
-          />
-          <Footer />
-        </div>
-      </div>
-    )
-  }
+//HANDLERS
+handleClick = () => {
+  this.setState({
+    goPlants: true
+  })
 }
+
+//RENDER
+render () {
+  return (
+    <div>
+    <h1>Welcome to Leaf of Faith</h1>
+    <button onClick={this.handleClick}>Plants</button>
+    {this.state.goPlants ? <Main1 /> : null}
+    <button onClick={this.handleClick}>Succulents</button>
+    {this.state.goPlants ? <Main1 /> : null}
+    </div>
+  )
+}
+}
+
 
 export default App
