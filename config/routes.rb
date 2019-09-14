@@ -11,4 +11,11 @@ Rails.application.routes.draw do
   delete 'api/plants/:id', to: 'plants#delete'
   put 'api/plants/:id', to: 'plants#update'
 
+  #succulent routes
+  get 'api/succulents', to: 'succulents#index'
+  get 'api/succulents/:id', to: 'succulents#show'
+  post 'api/succulents', to: 'succulents#create'
+  delete 'api/succulents/:id', to: 'succulents#delete'
+  put 'api/succulents/:id', to: 'succulents#update'
+
 end

@@ -2,18 +2,18 @@
 import React from 'react';
 
 import Header from "./Header.js"
-import Nav from "./Nav.js"
-import Main from "./Main.js"
+import Nav2 from "./Nav2.js"
+import Main2 from "./Main2.js"
 import Footer from "./Footer.js"
 
-class Main1 extends React.Component {
+class App2 extends React.Component {
 //STATE
   constructor(props) {
     super(props)
     this.state = {
       view: {
-        page: 'home',
-        pageTitle: 'your plants'
+        page: 'home2',
+        pageTitle: 'your succulents'
       },
       formInputs: {
         name: null,
@@ -24,7 +24,7 @@ class Main1 extends React.Component {
     }
   }
   // HANDLERS
-  handleView = (view, plantData) => {
+  handleView = (view, succulentData) => {
     let pageTitle = ''
     let formInputs = {
       name: '',
@@ -33,19 +33,19 @@ class Main1 extends React.Component {
       id: null
     }
     switch (view) {
-      case 'home':
-        pageTitle = 'your plants'
+      case 'home2':
+        pageTitle = 'your succulents'
         break
-      case 'addPlant':
-        pageTitle = 'add your new plant'
+      case 'addSucculent':
+        pageTitle = 'add your new succulent'
         break
-      case 'editPlant':
-        pageTitle = 'edit this plant'
+      case 'editSucculent':
+        pageTitle = 'edit this succulent'
         formInputs = {
-          name: postData.name,
-          type: postData.type,
-          care: postData.care,
-          id: postData.id
+          name: succulentData.name,
+          type: succulentData.type,
+          care: succulentData.care,
+          id: succulentData.id
         }
         break
       default:
@@ -63,10 +63,9 @@ class Main1 extends React.Component {
 render () {
   return (
     <div className="large-container">
-      <Header/>
       <div className="main-container">
-        <Nav handleView={this.handleView}/>
-        <Main
+        <Nav2 handleView={this.handleView}/>
+        <Main2
           handleView={this.handleView}
           view={this.state.view}
           formInputs={this.state.formInputs}
@@ -77,4 +76,4 @@ render () {
   )
 }
 }
-export default Main1
+export default App2

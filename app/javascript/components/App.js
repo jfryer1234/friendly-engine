@@ -2,8 +2,9 @@
 import React from "react";
 
 // DEPENDENCIES
-import Main1 from "./Main1.js"
-// import Header from "./Header.js"
+import App1 from "./App1.js"
+import Header from "./Header.js"
+import App2 from "./App2.js"
 // import Nav from "./Nav.js"
 // import Footer from "./Footer.js"
 
@@ -12,25 +13,28 @@ class App extends React.Component {
   constructor(props) {
     super(props);
       this.state = {
-        goPlants: false
+        goPlants: false,
+        goSucculents: false
       }
   }
 //HANDLERS
 handleClick = () => {
   this.setState({
-    goPlants: true
+    goPlants: true,
+    goSucculents: true
   })
 }
+
 
 //RENDER
 render () {
   return (
     <div>
-    <h1>Welcome to Leaf of Faith</h1>
+    <Header />
     <button onClick={this.handleClick}>Plants</button>
-    {this.state.goPlants ? <Main1 /> : null}
+    {this.state.goPlants ? <App1 /> : null}
     <button onClick={this.handleClick}>Succulents</button>
-    {this.state.goPlants ? <Main1 /> : null}
+    {this.state.goSucculents ? <App2 /> : null}
     </div>
   )
 }
