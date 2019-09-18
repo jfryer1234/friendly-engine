@@ -1,59 +1,71 @@
-// PACKAGES
-import React from "react"
-
+// =============================
 // DEPENDENCIES
-import Main from "./Main.js"
-import Header from "./Header.js"
-import Nav from "./Nav.js"
-import Footer from "./Footer.js"
+// =============================
+// packages
+import React from 'react'
 
-//CLASS COMPONENTS
+// components
+import Header from './Header.js'
+import Aside from './Aside.js'
+import Main from './Main.js'
+
+// =============================
+// COMPONENT CLASS
+// =============================
 class App extends React.Component {
-//STATE
+  // ==============
+  // STATE
+  // ==============
   constructor(props) {
     super(props)
     this.state = {
       view: {
         page: 'home',
-        pageTitle: 'your plants'
+        pageTitle: 'i heard that...'
       },
       formInputs: {
         name: null,
-        type: null,
-        care: null,
+        image: null,
+        body: null,
         id: null
       }
     }
   }
 
+  // ==============
   // HANDLERS
-  handleView = (view, plantData) => {
+  // ==============
+  // handles the view state
+  handleView = (view, postData) => {
+    // declare an empty variable
     let pageTitle = ''
     let formInputs = {
       name: '',
-      type: '',
-      care: '',
+      image: '',
+      body: '',
       id: null
     }
+    // decide the pageTitle based on the view
     switch (view) {
       case 'home':
-        pageTitle = 'your plants'
+        pageTitle = 'i heard that...'
         break
-      case 'addPlant':
-        pageTitle = 'add your new plant'
+      case 'addPost':
+        pageTitle = 'what did you say?'
         break
-      case 'editPlant':
-        pageTitle = 'edit this plant'
+      case 'editPost':
+        pageTitle = 'what did you really say?'
         formInputs = {
           name: postData.name,
-          type: postData.type,
-          care: postData.care,
+          image: postData.image,
+          body: postData.body,
           id: postData.id
         }
         break
       default:
         break
     }
+    // update the state
     this.setState({
       view: {
         page: view,
@@ -62,23 +74,28 @@ class App extends React.Component {
       formInputs: formInputs
     })
   }
-//RENDER
+
+  // ==============
+  // RENDER
+  // ==============
   render () {
     return (
       <div className="large-container">
         <Header/>
         <div className="main-container">
-          <Nav handleView={this.handleView}/>
+          <Aside handleView={this.handleView}/>
           <Main
-            handleView={this.handleView}
             view={this.state.view}
+            handleView={this.handleView}
             formInputs={this.state.formInputs}
           />
-          <Footer />
         </div>
       </div>
     )
   }
 }
 
+// =============================
+// EXPORT
+// =============================
 export default App
